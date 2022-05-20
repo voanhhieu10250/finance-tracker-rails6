@@ -3,9 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'net-smtp'
-gem 'net-pop'
-gem 'net-imap'
+gem 'net-smtp', require: false
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
@@ -23,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -58,6 +57,8 @@ end
 
 group :production do
   gem 'pg'
+  gem 'net-pop'
+  gem 'net-imap'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
