@@ -5,6 +5,7 @@ ruby '3.1.2'
 
 gem 'net-smtp'
 gem 'net-pop'
+gem 'net-imap'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
