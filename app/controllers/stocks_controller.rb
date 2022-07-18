@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class StocksController < ApplicationController
+  # rubocop:disable Metrics/MethodLength
   def search
     if params[:stock].present?
       @stock = Stock.new_lookup(params[:stock])
@@ -13,4 +16,5 @@ class StocksController < ApplicationController
       redirect_to my_portfolio_path
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end
