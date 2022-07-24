@@ -3,27 +3,27 @@
 </div>
 
 <% if @friends %>
-    <div class="card card-header results-block">
-      <table class="col">
-        <tbody>
-            <% @friends.each do |friend| %>
-              <tr>
-                <td><strong>Full Name: </strong><%= friend.full_name %></td>
-                <td><strong>Email: </strong><%= friend.email %></td>
-                <td>
-                  <strong>Actions: </strong>
-                  <%= link_to "View Profile", "#", class: "btn btn-sm btn-success" %>
-                  <% if current_user.not_friends_with?(friend.id) %>
-                    <%= link_to 'Follow friends?', friendships_path(friend: friend), class: "btn btn-sm btn-success", method: :post %>
-                  <% else %>
-                    <span class="badge bg-secondary">
-                      You are friends
-                    </span>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-        </tbody>
-      </table>
-    </div>
+  <div class="card card-header results-block">
+    <table class="col">
+      <tbody>
+        <% @friends.each do |friend| %>
+          <tr>
+            <td><strong>Full Name: </strong><%= friend.full_name %></td>
+            <td><strong>Email: </strong><%= friend.email %></td>
+            <td>
+              <strong>Actions: </strong>
+              <%= link_to "View Profile", user_path(friend), class: "btn btn-sm btn-success" %>
+              <% if current_user.not_friends_with?(friend.id) %>
+                <%= link_to 'Follow friends?', friendships_path(friend: friend), class: "btn btn-sm btn-success", method: :post %>
+              <% else %>
+                <span class="badge bg-secondary">
+                  You are friends
+                </span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>
